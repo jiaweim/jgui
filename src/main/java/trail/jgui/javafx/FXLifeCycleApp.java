@@ -30,8 +30,7 @@ public class FXLifeCycleApp extends Application
 {
     public FXLifeCycleApp()
     {
-        String name = Thread.currentThread().getName();
-        System.out.println("constructor: " + name);
+        System.out.println("constructor: " + Thread.currentThread().getName());
     }
 
     public static void main(String[] args)
@@ -40,17 +39,15 @@ public class FXLifeCycleApp extends Application
     }
 
     @Override
-    public void init() throws Exception
+    public void init()
     {
-        String name = Thread.currentThread().getName();
-        System.out.println("init(): " + name);
+        System.out.println("init(): " + Thread.currentThread().getName());
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        String name = Thread.currentThread().getName();
-        System.out.println("start(): " + name);
+        System.out.println("start(): " + Thread.currentThread().getName());
 
         Scene scene = new Scene(new Group(), 200, 200);
         primaryStage.setScene(scene);
@@ -61,7 +58,6 @@ public class FXLifeCycleApp extends Application
     @Override
     public void stop()
     {
-        String name = Thread.currentThread().getName();
-        System.out.println("stop(): " + name);
+        System.out.println("stop(): " + Thread.currentThread().getName());
     }
 }

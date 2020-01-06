@@ -16,8 +16,9 @@
 
 package trail.jgui.javafx.controls;
 
+
 import javafx.util.StringConverter;
-import trail.javafx.tableview.Person;
+import trail.jgui.javafx.tableview.Person;
 
 /**
  * @author JiaweiMao

@@ -21,7 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import trail.javafx.tableview.music.Music;
+import trail.jgui.javafx.tableview.music.Music;
 
 /**
  * @author JiaweiMao

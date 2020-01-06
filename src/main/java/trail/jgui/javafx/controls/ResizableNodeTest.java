@@ -31,7 +31,6 @@ import javafx.stage.Stage;
  */
 public class ResizableNodeTest extends Application
 {
-
     public static void main(String[] args)
     {
         launch(args);

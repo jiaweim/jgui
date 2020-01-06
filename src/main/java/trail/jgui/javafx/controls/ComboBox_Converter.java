@@ -23,7 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import trail.javafx.tableview.Person;
+import trail.jgui.javafx.tableview.Person;
 
 /**
  * @author JiaweiMao

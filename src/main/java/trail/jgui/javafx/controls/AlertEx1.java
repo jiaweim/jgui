@@ -29,18 +29,21 @@ import javafx.stage.Stage;
  * @version 1.0.0
  * @since Oct 30, 2018, 7:52:50 PM
  */
-public class AlertEx1 extends Application {
+public class AlertEx1 extends Application
+{
 
-	@Override
-	public void start(Stage primaryStage) {
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Information Dialog");
-		alert.setHeaderText("Look, an Information Dialog");
-		alert.setContentText("I have a great message for you!");
-		alert.showAndWait();
-	}
+    @Override
+    public void start(Stage primaryStage)
+    {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText("Look, an Information Dialog");
+        alert.setContentText("I have a great message for you!");
+        alert.showAndWait();
+    }
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
 }

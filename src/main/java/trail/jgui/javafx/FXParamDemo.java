@@ -30,7 +30,7 @@ import java.util.Map;
  * @version 1.0.0
  * @since 05 Dec 2017, 4:38 PM
  */
-public class FXParamApp extends Application
+public class FXParamDemo extends Application
 {
     public static void main(String[] args)
     {

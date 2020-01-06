@@ -27,7 +27,6 @@ import java.beans.PropertyChangeSupport;
  */
 public class Employee
 {
-
     private String name;
     private double salary;
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
