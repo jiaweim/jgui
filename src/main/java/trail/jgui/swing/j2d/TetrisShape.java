@@ -5,21 +5,21 @@ import java.util.Random;
 /**
  * Provides information about a Tetris piece.
  */
-public class Shape {
-
+public class TetrisShape
+{
     private Tetrominoes pieceShape;
     private int coords[][];
     private int[][][] coordsTable;
 
-
-    public Shape() {
+    public TetrisShape()
+    {
 
         coords = new int[4][2];
         setShape(Tetrominoes.NoShape);
     }
 
-    public void setShape(Tetrominoes shape) {
-
+    public void setShape(Tetrominoes shape)
+    {
         coordsTable = new int[][][]{
                 {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
                 {{0, -1}, {0, 0}, {-1, 0}, {-1, 1}},
@@ -42,27 +42,33 @@ public class Shape {
         pieceShape = shape;
     }
 
-    private void setX(int index, int x) {
+    private void setX(int index, int x)
+    {
         coords[index][0] = x;
     }
 
-    private void setY(int index, int y) {
+    private void setY(int index, int y)
+    {
         coords[index][1] = y;
     }
 
-    public int x(int index) {
+    public int x(int index)
+    {
         return coords[index][0];
     }
 
-    public int y(int index) {
+    public int y(int index)
+    {
         return coords[index][1];
     }
 
-    public Tetrominoes getShape() {
+    public Tetrominoes getShape()
+    {
         return pieceShape;
     }
 
-    public void setRandomShape() {
+    public void setRandomShape()
+    {
 
         Random r = new Random();
         int x = Math.abs(r.nextInt()) % 7 + 1;
@@ -70,7 +76,8 @@ public class Shape {
         setShape(values[x]);
     }
 
-    public int minX() {
+    public int minX()
+    {
 
         int m = coords[0][0];
 
@@ -83,7 +90,8 @@ public class Shape {
     }
 
 
-    public int minY() {
+    public int minY()
+    {
 
         int m = coords[0][1];
 
@@ -95,12 +103,13 @@ public class Shape {
         return m;
     }
 
-    public Shape rotateLeft() {
+    public TetrisShape rotateLeft()
+    {
 
         if (pieceShape == Tetrominoes.SquareShape)
             return this;
 
-        Shape result = new Shape();
+        TetrisShape result = new TetrisShape();
         result.pieceShape = pieceShape;
 
         for (int i = 0; i < 4; ++i) {
@@ -112,12 +121,13 @@ public class Shape {
         return result;
     }
 
-    public Shape rotateRight() {
+    public TetrisShape rotateRight()
+    {
 
         if (pieceShape == Tetrominoes.SquareShape)
             return this;
 
-        Shape result = new Shape();
+        TetrisShape result = new TetrisShape();
         result.pieceShape = pieceShape;
 
         for (int i = 0; i < 4; ++i) {

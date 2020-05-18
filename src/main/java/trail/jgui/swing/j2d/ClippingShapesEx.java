@@ -13,7 +13,8 @@ import java.awt.geom.Ellipse2D;
  * we have a bouncing circle and a rotating rectangle. when these shapes
  * overlap, the resulting area is filled with color.
  */
-class ClippingShapeSurface extends JPanel implements ActionListener {
+class ClippingShapeSurface extends JPanel implements ActionListener
+{
 
     private Timer timer;
     private double rotate = 1;
@@ -23,18 +24,21 @@ class ClippingShapeSurface extends JPanel implements ActionListener {
 
     private final int RADIUS = 60;
 
-    public ClippingShapeSurface() {
+    public ClippingShapeSurface()
+    {
 
         initTimer();
     }
 
-    private void initTimer() {
+    private void initTimer()
+    {
 
         timer = new Timer(10, this);
         timer.start();
     }
 
-    private void doDrawing(Graphics g) {
+    private void doDrawing(Graphics g)
+    {
 
         Graphics2D g2d = (Graphics2D) g;
 
@@ -78,13 +82,15 @@ class ClippingShapeSurface extends JPanel implements ActionListener {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         doDrawing(g);
     }
 
-    public void step() {
+    public void step()
+    {
 
         int w = getWidth();
         int h = getHeight();
@@ -112,21 +118,25 @@ class ClippingShapeSurface extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
 
         step();
         repaint();
     }
 }
 
-public class ClippingShapesEx extends JFrame {
+public class ClippingShapesEx extends JFrame
+{
 
-    public ClippingShapesEx() {
+    public ClippingShapesEx()
+    {
 
         initUI();
     }
 
-    private void initUI() {
+    private void initUI()
+    {
 
         setTitle("Clipping shapes");
 
@@ -137,7 +147,8 @@ public class ClippingShapesEx extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         EventQueue.invokeLater(() -> {
             ClippingShapesEx ex = new ClippingShapesEx();

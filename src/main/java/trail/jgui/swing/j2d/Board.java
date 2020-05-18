@@ -1,14 +1,14 @@
 package trail.jgui.swing.j2d;
 
 import javax.swing.*;
-import java.awt.Shape;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Board extends JPanel implements ActionListener {
+public class Board extends JPanel implements ActionListener
+{
 
     private final int BoardWidth = 10;
     private final int BoardHeight = 22;
@@ -21,18 +21,20 @@ public class Board extends JPanel implements ActionListener {
     private int curX = 0;
     private int curY = 0;
     private JLabel statusbar;
-    private Shape curPiece;
+    private TetrisShape curPiece;
     private Tetrominoes[] board;
 
-    public Board(Tetris parent) {
+    public Board(Tetris parent)
+    {
 
         initBoard(parent);
     }
 
-    private void initBoard(Tetris parent) {
+    private void initBoard(Tetris parent)
+    {
 
         setFocusable(true);
-        curPiece = new Shape();
+        curPiece = new TetrisShape();
         timer = new Timer(400, this);
         timer.start();
 
@@ -43,8 +45,8 @@ public class Board extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void actionPerformed(ActionEvent e)
+    {
         if (isFallingFinished) {
 
             isFallingFinished = false;
@@ -55,20 +57,24 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
-    private int squareWidth() {
+    private int squareWidth()
+    {
         return (int) getSize().getWidth() / BoardWidth;
     }
 
-    private int squareHeight() {
+    private int squareHeight()
+    {
         return (int) getSize().getHeight() / BoardHeight;
     }
 
-    private Tetrominoes shapeAt(int x, int y) {
+    private Tetrominoes shapeAt(int x, int y)
+    {
         return board[(y * BoardWidth) + x];
     }
 
 
-    public void start() {
+    public void start()
+    {
 
         if (isPaused)
             return;
@@ -82,7 +88,8 @@ public class Board extends JPanel implements ActionListener {
         timer.start();
     }
 
-    private void pause() {
+    private void pause()
+    {
 
         if (!isStarted)
             return;
@@ -102,7 +109,8 @@ public class Board extends JPanel implements ActionListener {
         repaint();
     }
 
-    private void doDrawing(Graphics g) {
+    private void doDrawing(Graphics g)
+    {
 
         Dimension size = getSize();
         int boardTop = (int) size.getHeight() - BoardHeight * squareHeight();
@@ -133,13 +141,15 @@ public class Board extends JPanel implements ActionListener {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)
+    {
 
         super.paintComponent(g);
         doDrawing(g);
     }
 
-    private void dropDown() {
+    private void dropDown()
+    {
 
         int newY = curY;
 
@@ -153,20 +163,23 @@ public class Board extends JPanel implements ActionListener {
         pieceDropped();
     }
 
-    private void oneLineDown() {
+    private void oneLineDown()
+    {
 
         if (!tryMove(curPiece, curX, curY - 1))
             pieceDropped();
     }
 
 
-    private void clearBoard() {
+    private void clearBoard()
+    {
 
         for (int i = 0; i < BoardHeight * BoardWidth; ++i)
             board[i] = Tetrominoes.NoShape;
     }
 
-    private void pieceDropped() {
+    private void pieceDropped()
+    {
 
         for (int i = 0; i < 4; ++i) {
 
@@ -181,7 +194,8 @@ public class Board extends JPanel implements ActionListener {
             newPiece();
     }
 
-    private void newPiece() {
+    private void newPiece()
+    {
 
         curPiece.setRandomShape();
         curX = BoardWidth / 2 + 1;
@@ -196,7 +210,8 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
-    private boolean tryMove(Shape newPiece, int newX, int newY) {
+    private boolean tryMove(TetrisShape newPiece, int newX, int newY)
+    {
 
         for (int i = 0; i < 4; ++i) {
 
@@ -219,7 +234,8 @@ public class Board extends JPanel implements ActionListener {
         return true;
     }
 
-    private void removeFullLines() {
+    private void removeFullLines()
+    {
 
         int numFullLines = 0;
 
@@ -252,7 +268,8 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
-    private void drawSquare(Graphics g, int x, int y, Tetrominoes shape) {
+    private void drawSquare(Graphics g, int x, int y, Tetrominoes shape)
+    {
 
         Color colors[] = {new Color(0, 0, 0), new Color(204, 102, 102),
                 new Color(102, 204, 102), new Color(102, 102, 204),
@@ -277,10 +294,12 @@ public class Board extends JPanel implements ActionListener {
 
     }
 
-    class TAdapter extends KeyAdapter {
+    class TAdapter extends KeyAdapter
+    {
 
         @Override
-        public void keyPressed(KeyEvent e) {
+        public void keyPressed(KeyEvent e)
+        {
 
             if (!isStarted || curPiece.getShape() == Tetrominoes.NoShape) {
                 return;

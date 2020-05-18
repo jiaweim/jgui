@@ -31,7 +31,6 @@ import javafx.stage.Stage;
  */
 public class PathEx1 extends Application
 {
-
     public static void main(String[] args)
     {
         launch(args);
