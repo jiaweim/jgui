@@ -48,22 +48,11 @@ public class ChoiceBoxEx1 extends Application
 
         // Add ChangeListeners to track change in selected index and item. Only
         // one listener is necessary if you want to track change in selection
-        seasons.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
-        {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue)
-            {
-                System.out.println("Itemchanged: old = " + oldValue + ",new = " + newValue);
-            }
-        });
-        seasons.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>()
-        {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
-            {
-                System.out.println("Indexchanged: old = " + oldValue + ", new = " + newValue);
-            }
-        });
+        seasons.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> System.out.println("Itemchanged: old = " + oldValue + ",new = " + newValue));
+        seasons.getSelectionModel().selectedIndexProperty()
+                .addListener((observable, oldValue, newValue) -> System.out.println("Indexchanged: old = " + oldValue + ", new = " + newValue));
+
         Label selectionMsgLbl = new Label("Your selection:");
         Label selectedValueLbl = new Label("None");
         // Bind the value property to the text property of the Label

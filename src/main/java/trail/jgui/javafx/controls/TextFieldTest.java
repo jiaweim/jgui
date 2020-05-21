@@ -45,6 +45,7 @@ public class TextFieldTest extends Application
         // Create a TextFiled with an empty string as its initial text
         TextField firstNameFld = new TextField();
         TextField lastNameFld = new TextField();
+        System.out.println(firstNameFld.getText());
 
         // Both fields should be wide enough to display 15 chars
         firstNameFld.setPrefColumnCount(15);
@@ -87,6 +88,6 @@ public class TextFieldTest extends Application
 
     public void changed(ObservableValue<? extends String> prop, String oldValue, String newValue)
     {
-        System.out.println("Old = " + oldValue + ", new = " + newValue);
+        System.out.println("Old = " + oldValue + ", new = " + newValue + ", isNull=" + (newValue == null));
     }
 }
