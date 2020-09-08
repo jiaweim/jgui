@@ -1,26 +1,3 @@
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 JiaweiMao
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software
- * and associated documentation files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or
- * substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
 package trail.jgui.javafx.concurrent;
 
 import javafx.beans.binding.When;
@@ -32,13 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-/**
- * @author JiaweiMao
- * @version 1.0.0
- * @date 2017.01.11, 8:05 PM
- */
-public class WorkerStateUI extends GridPane {
-
+public class WorkerStateUI extends GridPane
+{
     private final Label title = new Label("");
     private final Label message = new Label("");
     private final Label running = new Label("");
@@ -51,16 +23,19 @@ public class WorkerStateUI extends GridPane {
     private final TextArea exception = new TextArea("");
     private final ProgressBar progressBar = new ProgressBar();
 
-    public WorkerStateUI() {
+    public WorkerStateUI()
+    {
         addUI();
     }
 
-    public WorkerStateUI(Worker<ObservableList<Long>> worker) {
+    public WorkerStateUI(Worker<ObservableList<Long>> worker)
+    {
         addUI();
         bindToWorker(worker);
     }
 
-    private void addUI() {
+    private void addUI()
+    {
         value.setPrefColumnCount(20);
         value.setPrefRowCount(3);
         exception.setPrefColumnCount(20);
@@ -78,7 +53,8 @@ public class WorkerStateUI extends GridPane {
         addRow(8, new Label("Exception:"), exception);
     }
 
-    public void bindToWorker(final Worker<ObservableList<Long>> worker) {
+    public void bindToWorker(final Worker<ObservableList<Long>> worker)
+    {
         // Bind Labels to the properties of the worker
         title.textProperty().bind(worker.titleProperty());
         message.textProperty().bind(worker.messageProperty());

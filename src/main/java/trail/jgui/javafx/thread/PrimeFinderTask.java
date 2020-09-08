@@ -47,7 +47,7 @@ public class PrimeFinderTask extends Task<ObservableList<Long>>
     }
 
     @Override
-    protected ObservableList<Long> call() throws Exception
+    protected ObservableList<Long> call()
     {
         ObservableList<Long> results = FXCollections.observableArrayList();
 
